@@ -35,10 +35,69 @@ const Tenant = () => {
       <Banner />
 
       <div className="grid grid-cols-2 gap-6 mx-6">
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        <ProductItem
+          data={{
+            id: "1",
+            image: "/assets/burger.png",
+            category: "Tradicional",
+            name: "Texas Burger",
+            price: "25,50",
+          }}
+        />
+        <ProductItem
+          data={{
+            id: "2",
+            image: "/assets/burger.png",
+            category: "Tradicional",
+            name: "Texas Burger",
+            price: "25,50",
+          }}
+        />
+        <ProductItem
+          data={{
+            id: "3",
+            image: "/assets/burger.png",
+            category: "Tradicional",
+            name: "Texas Burger",
+            price: "25,50",
+          }}
+        />
+        <ProductItem
+          data={{
+            id: "4",
+            image: "/assets/burger.png",
+            category: "Tradicional",
+            name: "Texas Burger",
+            price: "25,50",
+          }}
+        />
+        <ProductItem
+          data={{
+            id: "5",
+            image: "/assets/burger.png",
+            category: "Tradicional",
+            name: "Texas Burger",
+            price: "25,50",
+          }}
+        />
+        <ProductItem
+          data={{
+            id: "6",
+            image: "/assets/burger.png",
+            category: "Tradicional",
+            name: "Texas Burger",
+            price: "25,50",
+          }}
+        />
+        <ProductItem
+          data={{
+            id: "7",
+            image: "/assets/burger.png",
+            category: "Tradicional",
+            name: "Texas Burger",
+            price: "25,50",
+          }}
+        />
       </div>
     </div>
   );
