@@ -3,12 +3,17 @@ import { Product } from "../@types/Product";
 
 interface Props {
   data: Product;
+  mainColor: string;
+  secondColor: string;
 }
 
-export function ProductItem({ data }: Props) {
+export function ProductItem({ data, mainColor, secondColor }: Props) {
   return (
     <Link href={`/godelivery/product/${data.id}`}>
-      <a className="block overflow-hidden bg-orange-100 rounded shadow-md">
+      <a
+        className="block overflow-hidden bg-orange-100 rounded shadow-md"
+        color={mainColor}
+      >
         <div className="h-[90px]"></div>
         <div className="p-3">
           <div className="items-center -mt-[90px]">

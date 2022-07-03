@@ -1,10 +1,20 @@
+import { GetServerSideProps } from "next";
 import { Hamburger, List } from "phosphor-react";
 
 import { Banner } from "../../components/Banner";
 import { ProductItem } from "../../components/ProductItem";
 import { SearchInput } from "../../components/SearchInput";
 
-const Tenant = () => {
+import { getTenantResponse, useApi } from "../../libs/useApi";
+
+const Tenant = (data: Props) => {
+  const api = useApi();
+  const tenant = api.getTenant("godelivery");
+
+  if (!tenant) {
+    // direct
+  }
+
   const handleSearch = (searchValue: string) => {
     console.log(`Você está buscando por: ${searchValue}`);
   };
@@ -12,7 +22,9 @@ const Tenant = () => {
   return (
     <div className="bg-white">
       <header className="bg-neutral-300 px-6 py-[50px]">
-        <div className="flex items-center justify-between mb-7">
+        <div
+          className={`flex items-center justify-between mb-7 bg-${data.tenant.mainColor}`}
+        >
           <div>
             <h1 className="flex mb-2 text-2xl font-medium text-neutral-800">
               Seja Bem Vindo(a)
@@ -24,12 +36,15 @@ const Tenant = () => {
           </div>
           <div className="header-top-right">
             <div className="flex flex-col justify-between h-4 w-[18px]">
-              <List size={32} color="#FB9400" />
+              <List size={32} color={data.tenant.mainColor} />
             </div>
           </div>
         </div>
         <div className="header-bottom">
-          <SearchInput onSearch={handleSearch} />
+          <SearchInput
+            onSearch={handleSearch}
+            mainColor={data.tenant.mainColor}
+          />
         </div>
       </header>
       <Banner />
@@ -43,6 +58,8 @@ const Tenant = () => {
             name: "Texas Burger",
             price: "25,50",
           }}
+          mainColor={data.tenant.mainColor}
+          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -52,6 +69,8 @@ const Tenant = () => {
             name: "Texas Burger",
             price: "25,50",
           }}
+          mainColor={data.tenant.mainColor}
+          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -61,6 +80,8 @@ const Tenant = () => {
             name: "Texas Burger",
             price: "25,50",
           }}
+          mainColor={data.tenant.mainColor}
+          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -70,6 +91,8 @@ const Tenant = () => {
             name: "Texas Burger",
             price: "25,50",
           }}
+          mainColor={data.tenant.mainColor}
+          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -79,6 +102,8 @@ const Tenant = () => {
             name: "Texas Burger",
             price: "25,50",
           }}
+          mainColor={data.tenant.mainColor}
+          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -88,6 +113,8 @@ const Tenant = () => {
             name: "Texas Burger",
             price: "25,50",
           }}
+          mainColor={data.tenant.mainColor}
+          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -97,6 +124,8 @@ const Tenant = () => {
             name: "Texas Burger",
             price: "25,50",
           }}
+          mainColor={data.tenant.mainColor}
+          secondColor={data.tenant.secondColor}
         />
       </div>
     </div>
@@ -104,3 +133,27 @@ const Tenant = () => {
 };
 
 export default Tenant;
+
+interface Props {
+  tenant: getTenantResponse;
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { tenant: tenantSlug } = context.query;
+  const api = useApi();
+
+  //GET Tenant
+  const tenant = await api.getTenant(tenantSlug as string);
+  if (!tenant) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { tenant },
+  };
+};

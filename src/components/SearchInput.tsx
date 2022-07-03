@@ -3,9 +3,10 @@ import { MagnifyingGlass } from "phosphor-react";
 
 interface Props {
   onSearch: (searchValue: string) => void;
+  mainColor: string;
 }
 
-export function SearchInput({ onSearch }: Props) {
+export function SearchInput({ onSearch, mainColor }: Props) {
   const [focused, setFocused] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
@@ -24,8 +25,9 @@ export function SearchInput({ onSearch }: Props) {
       <button
         onClick={() => onSearch(searchValue)}
         className="w-12 h-12 mr-2 bg-white rounded"
+        color={mainColor}
       >
-        <MagnifyingGlass size={48} color="#FB9400" />
+        <MagnifyingGlass size={48} color={mainColor} />
       </button>
       <input
         type="text"
