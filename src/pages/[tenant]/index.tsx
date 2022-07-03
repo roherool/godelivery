@@ -1,6 +1,7 @@
 import { Hamburger, List } from "phosphor-react";
 
 import { Banner } from "../../components/Banner";
+import { ProductItem } from "../../components/ProductItem";
 import { SearchInput } from "../../components/SearchInput";
 
 const Tenant = () => {
@@ -11,18 +12,18 @@ const Tenant = () => {
   return (
     <div className="bg-white">
       <header className="bg-neutral-300 px-6 py-[50px]">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-7">
           <div>
-            <div className="flex mb-2 text-2xl font-medium text-neutral-800">
+            <h1 className="flex mb-2 text-2xl font-medium text-neutral-800">
               Seja Bem Vindo(a)
               <Hamburger size={32} color="#FB9400" className="ml-2" />
-            </div>
-            <div className="text-base font-normal text-opacity-80 text-neutral-500">
+            </h1>
+            <p className="text-base font-normal text-opacity-80 text-neutral-500">
               O que deseja pra hoje?
-            </div>
+            </p>
           </div>
           <div className="header-top-right">
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-between h-4 w-[18px]">
               <List size={32} color="#FB9400" />
             </div>
           </div>
@@ -32,6 +33,13 @@ const Tenant = () => {
         </div>
       </header>
       <Banner />
+
+      <div className="grid grid-cols-2 gap-6 mx-6">
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+      </div>
     </div>
   );
 };
