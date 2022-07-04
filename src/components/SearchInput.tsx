@@ -24,8 +24,7 @@ export function SearchInput({ onSearch, mainColor }: Props) {
     >
       <button
         onClick={() => onSearch(searchValue)}
-        className="w-12 h-12 mr-2 bg-white rounded"
-        color={mainColor}
+        className="flex items-center justify-center w-12 h-12 mr-2 bg-white rounded"
       >
         <MagnifyingGlass size={48} color={mainColor} />
       </button>

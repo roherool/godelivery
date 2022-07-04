@@ -34,9 +34,9 @@ const Tenant = (data: Props) => {
               O que deseja pra hoje?
             </p>
           </div>
-          <div className="header-top-right">
-            <div className="flex flex-col justify-between h-4 w-[18px]">
-              <List size={32} color={data.tenant.mainColor} />
+          <div>
+            <div className="flex flex-col justify-between">
+              <List size={48} color={data.tenant.mainColor} />
             </div>
           </div>
         </div>
