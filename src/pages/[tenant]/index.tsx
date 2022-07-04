@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { GetServerSideProps } from "next";
 import { Hamburger, List } from "phosphor-react";
 
@@ -5,15 +6,16 @@ import { Banner } from "../../components/Banner";
 import { ProductItem } from "../../components/ProductItem";
 import { SearchInput } from "../../components/SearchInput";
 
-import { getTenantResponse, useApi } from "../../libs/useApi";
+import { Tenant } from "../../@types/Tenant";
+import { useApi } from "../../libs/useApi";
+import { useAppContext } from "../../contexts/AppContext";
 
 const Tenant = (data: Props) => {
-  const api = useApi();
-  const tenant = api.getTenant("godelivery");
+  const { tenant, setTenant } = useAppContext();
 
-  if (!tenant) {
-    // direct
-  }
+  useEffect(() => {
+    setTenant(data.tenant);
+  }, []);
 
   const handleSearch = (searchValue: string) => {
     console.log(`Você está buscando por: ${searchValue}`);
@@ -23,12 +25,12 @@ const Tenant = (data: Props) => {
     <div className="bg-white">
       <header className="bg-neutral-300 px-6 py-[50px]">
         <div
-          className={`flex items-center justify-between mb-7 bg-${data.tenant.mainColor}`}
+          className={`flex items-center justify-between mb-7 bg-${tenant?.mainColor}`}
         >
           <div>
             <h1 className="flex mb-2 text-2xl font-medium text-neutral-800">
               Seja Bem Vindo(a)
-              <Hamburger size={32} color="#FB9400" className="ml-2" />
+              <Hamburger size={32} color={tenant?.mainColor} className="ml-2" />
             </h1>
             <p className="text-base font-normal text-opacity-80 text-neutral-500">
               O que deseja pra hoje?
@@ -36,15 +38,12 @@ const Tenant = (data: Props) => {
           </div>
           <div>
             <div className="flex flex-col justify-between">
-              <List size={48} color={data.tenant.mainColor} />
+              <List size={48} color={tenant?.mainColor} />
             </div>
           </div>
         </div>
         <div className="header-bottom">
-          <SearchInput
-            onSearch={handleSearch}
-            mainColor={data.tenant.mainColor}
-          />
+          <SearchInput onSearch={handleSearch} />
         </div>
       </header>
       <Banner />
@@ -58,8 +57,6 @@ const Tenant = (data: Props) => {
             name: "Texas Burger",
             price: "25,50",
           }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -69,8 +66,6 @@ const Tenant = (data: Props) => {
             name: "Texas Burger",
             price: "25,50",
           }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -80,8 +75,6 @@ const Tenant = (data: Props) => {
             name: "Texas Burger",
             price: "25,50",
           }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -91,8 +84,6 @@ const Tenant = (data: Props) => {
             name: "Texas Burger",
             price: "25,50",
           }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -102,8 +93,6 @@ const Tenant = (data: Props) => {
             name: "Texas Burger",
             price: "25,50",
           }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -113,8 +102,6 @@ const Tenant = (data: Props) => {
             name: "Texas Burger",
             price: "25,50",
           }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{
@@ -124,8 +111,6 @@ const Tenant = (data: Props) => {
             name: "Texas Burger",
             price: "25,50",
           }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
       </div>
     </div>
@@ -135,7 +120,7 @@ const Tenant = (data: Props) => {
 export default Tenant;
 
 interface Props {
-  tenant: getTenantResponse;
+  tenant: Tenant;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
