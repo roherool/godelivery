@@ -12,25 +12,18 @@ export function Banner() {
         modules={[Autoplay]}
         className="w-full h-full rounded-lg shadow-md"
       >
-        <SwiperSlide className="flex items-center justify-center text-lg text-center bg-gray-300">
+        <SwiperSlide className="flex items-center justify-center text-lg text-center">
           <img
-            src="/vercel.svg"
+            src="/assets/banner01_promocao.png"
             alt="Slide de imagem"
-            className="block object-cover w-full h-40"
+            className="block object-cover max-w-full max-h-full"
           />
         </SwiperSlide>
-        <SwiperSlide className="flex items-center justify-center text-lg text-center bg-red-300">
+        <SwiperSlide className="flex items-center justify-center text-lg text-center">
           <img
-            src="/vercel.svg"
+            src="/assets/banner02_promocao.png"
             alt="Slide de imagem"
-            className="block object-cover w-full h-40"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex items-center justify-center text-lg text-center bg-orange-400">
-          <img
-            src="/vercel.svg"
-            alt="Slide de imagem"
-            className="block object-cover w-full h-40"
+            className="block object-cover max-w-full max-h-full"
           />
         </SwiperSlide>
       </Swiper>

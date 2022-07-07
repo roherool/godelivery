@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  <a href="https://letmeask-85ab4.firebaseapp.com/">
+    <img alt="godelivery" title="godelivery" src="./src/assets/images/logo.svg">
+  </a>
+</h1>
 
-## Getting Started
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">Licença</a>
+</p>
 
-First, run the development server:
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000">
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+ <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=8257E5&labelColor=000000" alt="NLW 06" />
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!--
+<p align="center">
+  <img alt="Happy" src=".github/letmeask.png" width="100%">
+</p> -->
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### ✨ Tecnologias
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [x] **[React](https://reactjs.org)**
+- [x] **[TypeScript](https://www.typescriptlang.org/)**
+- [x] **[Sass](https://sass-lang.com/)**
+- [x] **[Firebase](https://firebase.google.com/?hl=pt)**
 
-## Learn More
+### 💻 Projeto
 
-To learn more about Next.js, take a look at the following resources:
+O **[letmeask](https://letmeask-85ab4.firebaseapp.com/)** é um app que une a técnica de salas de **Q&A** com a interação de perguntas e respostas, idealizado pela **[Rocketseat](https://rocketseat.com.br/)** e desenvolvido por mim durante a semana do **NLW 6** que acorreu do dia **20/06/2021** à **25/06/2021** com uma intensa maratona de aprendizado e descoberta de novas tecnologias.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔖 Layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Você pode visualizar o layout do projeto através **[desse link](https://www.figma.com/file/u0BQK8rCf2KgzcukdRRCWh/Letmeask/duplicate)**. É necessário ter conta no **[Figma](http://figma.com/)** para acessá-lo.
 
-## Deploy on Vercel
+### 🚀 Como executar
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [x] Clone o repositório
+- [x] Instale as dependências com **`yarn`**
+- [x] Inicie o servidor com **`yarn dev`**
+- [x] Agora você pode acessar **[`localhost:3000`](http://localhost:3000)** do seu navegador.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 📄 Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo **[LICENSE](license.md)** para mais detalhes.
+
+---
+
+Olá, trabalho com desenvolvimento desde **2012**, e faço parte da comunidade **[Rocketseat](https://rocketseat.com.br/)**, desde **2018**. Se você gostou e quer aprender a construir aplicativos lindos como este, eu te convido a fazer parte comigo, somos uma comunidade de **devs** apaixonados por tecnologia, tudo que é feito aqui, é pensado no seu crescimento profissional, construído pela comunidade para a comunidade. Estamos em constante aprendizado e evolução, a missão da **[Rocketseat](https://rocketseat.com.br/)** e te preparar para uma gigantesca oportunidade de mercado que vai dominar o mundo nos próximos anos, tudo é feito com muito carinho. Somos hoje a maior comunidade de programação da América Latina.

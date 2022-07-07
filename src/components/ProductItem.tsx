@@ -13,7 +13,7 @@ export function ProductItem({ data }: Props) {
   return (
     <Link href={`/${tenant?.slug}/product/${data.id}`}>
       <a
-        className="block overflow-hidden bg-orange-100 rounded shadow-md"
+        className="block overflow-hidden rounded shadow-md"
         color={tenant?.mainColor}
       >
         <div
