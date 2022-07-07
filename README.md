@@ -34,18 +34,14 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ### 💻 Projeto
 
-O **[letmeask](https://letmeask-85ab4.firebaseapp.com/)** é um app que une a técnica de salas de **Q&A** com a interação de perguntas e respostas, idealizado pela **[Rocketseat](https://rocketseat.com.br/)** e desenvolvido por mim durante a semana do **NLW 6** que acorreu do dia **20/06/2021** à **25/06/2021** com uma intensa maratona de aprendizado e descoberta de novas tecnologias.
-
-### 🔖 Layout
-
-Você pode visualizar o layout do projeto através **[desse link](https://www.figma.com/file/u0BQK8rCf2KgzcukdRRCWh/Letmeask/duplicate)**. É necessário ter conta no **[Figma](http://figma.com/)** para acessá-lo.
+O **[Godelivery]()** é um app de delivery, idealizado pela **[B7Web](https://b7web.com.br/fullstack/)** e desenvolvido durante a maratona do **Next.JS** que está disponível no link acima, com um ritmo intenso de aprendizado e descoberta de novas tecnologias.
 
 ### 🚀 Como executar
 
 - [x] Clone o repositório
-- [x] Instale as dependências com **`yarn`**
-- [x] Inicie o servidor com **`yarn dev`**
-- [x] Agora você pode acessar **[`localhost:3000`](http://localhost:3000)** do seu navegador.
+- [x] Instale as dependências com **`npm install`**
+- [x] Inicie o servidor com **`npm run dev`**
+- [x] Agora você pode acessar **[`localhost:3000`](http://localhost:3000)** no seu navegador.
 
 ### 📄 Licença
 
@@ -53,4 +49,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo **[LICENSE](license.md)** 
 
 ---
 
-Olá, trabalho com desenvolvimento desde **2012**, e faço parte da comunidade **[Rocketseat](https://rocketseat.com.br/)**, desde **2018**. Se você gostou e quer aprender a construir aplicativos lindos como este, eu te convido a fazer parte comigo, somos uma comunidade de **devs** apaixonados por tecnologia, tudo que é feito aqui, é pensado no seu crescimento profissional, construído pela comunidade para a comunidade. Estamos em constante aprendizado e evolução, a missão da **[Rocketseat](https://rocketseat.com.br/)** e te preparar para uma gigantesca oportunidade de mercado que vai dominar o mundo nos próximos anos, tudo é feito com muito carinho. Somos hoje a maior comunidade de programação da América Latina.
+Olá, trabalho com desenvolvimento desde **2012**, e faço parte da comunidade **[B7Web](https://b7web.com.br/fullstack/)** desde **2018**. Se você gostou e quer aprender a construir aplicativos lindos como este, eu te convido a fazer parte comigo, somos uma comunidade de **devs** apaixonados por tecnologia, tudo que é feito aqui, é pensado no seu crescimento profissional, construído com muito carinho por uma equipe apaixonada pelo que faz. A **B7Web** esta em constante evolução, sempre trazendo o que é há de mais novo e com as melhores tecnologias do mercado.
