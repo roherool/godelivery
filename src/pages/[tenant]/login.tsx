@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 
@@ -6,8 +6,11 @@ import { Tenant } from "../../@types/Tenant";
 import { useApi } from "../../libs/useApi";
 import { useAppContext } from "../../contexts/AppContext";
 import { Header } from "../../components/Header";
+import { InputField } from "../../components/InputField";
 
 const Login = (data: Props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { tenant, setTenant } = useAppContext();
 
   useEffect(() => {
@@ -23,6 +26,21 @@ const Login = (data: Props) => {
       <Header
         color={data.tenant.mainColor}
         backButton={`/${data.tenant.slug}`}
+      />
+
+      <InputField
+        placeholder="Digite seu e-mail"
+        value={email}
+        onChange={setEmail}
+        color={data.tenant.mainColor}
+      />
+
+      <InputField
+        placeholder="Digite sua senha"
+        value={password}
+        onChange={setPassword}
+        color={data.tenant.mainColor}
+        password
       />
     </div>
   );
