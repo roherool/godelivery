@@ -1,6 +1,6 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
-import "swiper/css";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper'
+import 'swiper/css'
 
 export function Banner() {
   return (
@@ -28,5 +28,5 @@ export function Banner() {
         </SwiperSlide>
       </Swiper>
     </div>
-  );
+  )
 }

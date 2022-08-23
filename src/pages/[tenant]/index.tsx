@@ -1,25 +1,27 @@
-import { useEffect } from "react";
-import { GetServerSideProps } from "next";
-import { Hamburger, List } from "phosphor-react";
+import { useEffect, useState } from 'react'
+import { GetServerSideProps } from 'next'
+import { Hamburger, List } from 'phosphor-react'
 
-import { Banner } from "../../components/Banner";
-import { ProductItem } from "../../components/ProductItem";
-import { SearchInput } from "../../components/SearchInput";
+import { Banner } from '../../components/Banner'
+import { ProductItem } from '../../components/ProductItem'
+import { SearchInput } from '../../components/SearchInput'
 
-import { Tenant } from "../../@types/Tenant";
-import { useApi } from "../../libs/useApi";
-import { useAppContext } from "../../contexts/AppContext";
+import { Tenant } from '../../@types/Tenant'
+import { Product } from '../../@types/Product'
+import { useApi } from '../../libs/useApi'
+import { useAppContext } from '../../contexts/AppContext'
 
-const Tenant = (data: Props) => {
+const Home = (data: Props) => {
   const { tenant, setTenant } = useAppContext();
+  const [products, setProducts] = useState<Product[]>(data.products);
 
   useEffect(() => {
-    setTenant(data.tenant);
-  }, []);
+    setTenant(data.tenant)
+  }, [])
 
   const handleSearch = (searchValue: string) => {
-    console.log(`Você está buscando por: ${searchValue}`);
-  };
+    console.log(`Você está buscando por: ${searchValue}`)
+  }
 
   return (
     <div className="bg-white">
@@ -46,99 +48,48 @@ const Tenant = (data: Props) => {
           <SearchInput onSearch={handleSearch} />
         </div>
       </header>
+
       <Banner />
 
       <div className="grid grid-cols-2 gap-6 mx-6">
-        <ProductItem
-          data={{
-            id: "1",
-            image: "/assets/burger.png",
-            category: "Tradicional",
-            name: "Texas Burger",
-            price: "25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: "2",
-            image: "/assets/burger.png",
-            category: "Tradicional",
-            name: "Texas Burger",
-            price: "25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: "3",
-            image: "/assets/burger.png",
-            category: "Tradicional",
-            name: "Texas Burger",
-            price: "25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: "4",
-            image: "/assets/burger.png",
-            category: "Tradicional",
-            name: "Texas Burger",
-            price: "25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: "5",
-            image: "/assets/burger.png",
-            category: "Tradicional",
-            name: "Texas Burger",
-            price: "25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: "6",
-            image: "/assets/burger.png",
-            category: "Tradicional",
-            name: "Texas Burger",
-            price: "25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: "7",
-            image: "/assets/burger.png",
-            category: "Tradicional",
-            name: "Texas Burger",
-            price: "25,50",
-          }}
-        />
+        {products.map((item, index) => (
+          <ProductItem
+            key={index}
+            data={item}
+          />
+        ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Tenant;
+export default Home
 
 interface Props {
-  tenant: Tenant;
+  tenant: Tenant,
+  products: Product[]
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { tenant: tenantSlug } = context.query;
-  const api = useApi();
+  const { tenant: tenantSlug } = context.query
+  const api = useApi(tenantSlug as string)
 
-  //GET Tenant
-  const tenant = await api.getTenant(tenantSlug as string);
+  // GET Tenant
+  const tenant = await api.getTenant()
   if (!tenant) {
     return {
       redirect: {
-        destination: "/",
+        destination: '/',
         permanent: false,
       },
-    };
+    }
   }
 
+  // GET Products
+  const products = await api.getAllProducts();
+
+
   return {
-    props: { tenant },
-  };
-};
+    props: { tenant, products },
+  }
+}

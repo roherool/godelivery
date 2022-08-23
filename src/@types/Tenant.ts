@@ -1,6 +1,6 @@
-export interface Tenant {
-  slug: string;
-  name: string;
-  mainColor: string;
-  secondColor: string;
+export type Tenant = {
+  slug: string
+  name: string
+  mainColor: string
+  secondColor: string
 }

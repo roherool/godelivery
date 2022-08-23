@@ -1,14 +1,16 @@
-import Link from "next/link";
-import { Product } from "../@types/Product";
+import Link from 'next/link'
+import { Product } from '../@types/Product'
 
-import { useAppContext } from "../contexts/AppContext";
+import { useAppContext } from '../contexts/AppContext'
+import { useFormatter } from '../libs/useFormatter'
 
 interface Props {
-  data: Product;
+  data: Product
 }
 
 export function ProductItem({ data }: Props) {
-  const { tenant } = useAppContext();
+  const { tenant } = useAppContext()
+  const formatter = useFormatter();
 
   return (
     <Link href={`/${tenant?.slug}/product/${data.id}`}>
@@ -32,10 +34,10 @@ export function ProductItem({ data }: Props) {
             className="text-sm font-semibold"
             style={{ color: tenant?.mainColor }}
           >
-            R$ {data.price}
+            {/*{formatter.formatPrice(data.price)}*/}
           </span>
         </div>
       </a>
     </Link>
-  );
+  )
 }

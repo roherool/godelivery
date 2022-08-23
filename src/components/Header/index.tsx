@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { ArrowLeft } from "phosphor-react";
+import Link from 'next/link'
+import { ArrowLeft } from 'phosphor-react'
 
 interface Props {
-  backButton: string;
-  color: string;
-  title?: string;
-  subtitle?: string;
+  backButton: string
+  color: string
+  title?: string
+  subtitle?: string
 }
 
 export function Header({ backButton, color, title, subtitle }: Props) {
@@ -26,5 +26,5 @@ export function Header({ backButton, color, title, subtitle }: Props) {
       </div>
       <div className="flex items-center justify-center w-12"></div>
     </div>
-  );
+  )
 }

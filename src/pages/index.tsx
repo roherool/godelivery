@@ -1,12 +1,21 @@
-import type { NextPage } from "next";
-import Tenant from "./[tenant]";
+import type { NextPage } from 'next'
+import { signIn, signOut, useSession } from 'next-auth/react'
+// import Tenant from './[tenant]'
 
 const Home: NextPage = () => {
+  const { data: session } = useSession()
+
   return (
     <div>
-      <h1>Página Home</h1>
+      {!session && <button onClick={() => signIn()}>Fazer Login</button>}
+      {session && (
+        <>
+          Olá, {session.user?.name}
+          <button onClick={() => signOut()}>Sair</button>
+        </>
+      )}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

@@ -1,12 +1,12 @@
-import { Eye, EyeSlash } from "phosphor-react";
-import { useState } from "react";
+import { Eye, EyeSlash } from 'phosphor-react'
+import { useState } from 'react'
 
 interface Props {
-  color: string;
-  placeholder: string;
-  password?: boolean;
-  value: string;
-  onChange: (newValue: string) => void;
+  color: string
+  placeholder: string
+  password?: boolean
+  value: string
+  onChange: (newValue: string) => void
 }
 
 export function InputField({
@@ -16,19 +16,19 @@ export function InputField({
   value,
   onChange,
 }: Props) {
-  const [showPassword, setShowPassword] = useState(false);
-  const [focused, setFocused] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
+  const [focused, setFocused] = useState(false)
 
   return (
     <div
       className="w-full h-[61px] border-2 rounded px-4 flex"
       style={{
-        borderColor: focused ? color : "#F9F9FB",
-        backgroundColor: focused ? "#FFFFFF" : "#F9F9FB",
+        borderColor: focused ? color : '#F9F9FB',
+        backgroundColor: focused ? '#FFFFFF' : '#F9F9FB',
       }}
     >
       <input
-        type={password ? (showPassword ? "text" : "password") : "text"}
+        type={password ? (showPassword ? 'text' : 'password') : 'text'}
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -48,5 +48,5 @@ export function InputField({
         </div>
       )}
     </div>
-  );
+  )
 }
