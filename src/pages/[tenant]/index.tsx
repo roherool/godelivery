@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
 import { Hamburger, List } from 'phosphor-react'
+import { useEffect, useState } from 'react'
 
 import { Banner } from '../../components/Banner'
 import { ProductItem } from '../../components/ProductItem'
 import { SearchInput } from '../../components/SearchInput'
 
-import { Tenant } from '../../@types/Tenant'
 import { Product } from '../../@types/Product'
-import { useApi } from '../../libs/useApi'
+import { Tenant } from '../../@types/Tenant'
 import { useAppContext } from '../../contexts/AppContext'
+import { useApi } from '../../libs/useApi'
 
 const Home = (data: Props) => {
   const { tenant, setTenant } = useAppContext();

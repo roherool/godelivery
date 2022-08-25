@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Head, Html, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
@@ -13,7 +13,7 @@ export default function Document() {
 
         <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
       </Head>
-      <body className="bg-white bg-background text-neutral-900 bg-top bg-[length:auto_100vh] md:bg-cover bg-no-repeat">
+      <body className="bg-white text-neutral-900">
         <Main />
         <NextScript />
       </body>

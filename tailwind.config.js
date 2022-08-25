@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/pages/**/*.tsx', './src/components/**/*.tsx'],
   theme: {
     extend: {
+      backgroundImage: {
+        'product-bg': "url('/assets/product-bg.png')"
+      },
       colors: {
         brand: {
           300: '#FF9979',

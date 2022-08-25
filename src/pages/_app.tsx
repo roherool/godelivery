@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 
-import { AppContextProvider } from '../contexts/AppContext'
 import { SessionProvider } from 'next-auth/react'
+import { AppContextProvider } from '../contexts/AppContext'
 
 import '../styles/globals.css'
 

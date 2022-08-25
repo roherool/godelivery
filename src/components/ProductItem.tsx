@@ -10,7 +10,7 @@ interface Props {
 
 export function ProductItem({ data }: Props) {
   const { tenant } = useAppContext()
-  const formatter = useFormatter();
+  const format = useFormatter()
 
   return (
     <Link href={`/${tenant?.slug}/product/${data.id}`}>
@@ -34,7 +34,7 @@ export function ProductItem({ data }: Props) {
             className="text-sm font-semibold"
             style={{ color: tenant?.mainColor }}
           >
-            {/*{formatter.formatPrice(data.price)}*/}
+            {format.formatPrice(data.price)}
           </span>
         </div>
       </a>
