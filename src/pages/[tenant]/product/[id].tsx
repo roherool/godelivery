@@ -8,7 +8,7 @@ import { Tenant } from '../../../@types/Tenant'
 import { Button } from '../../../components/Button'
 import { Header } from '../../../components/Header'
 import { Quantity } from '../../../components/Quantity'
-import { useAppContext } from '../../../contexts/AppContext'
+import { useAppContext } from '../../../contexts/app'
 import { useApi } from '../../../libs/useApi'
 import { useFormatter } from '../../../libs/useFormatter'
 
@@ -80,7 +80,7 @@ const Product = (data: Props) => {
           {formatter.formatPrice(data.product.price)}
         </div>
       </div>
-      <div className="mx-6 my-12">
+      <div className="mx-6 my-12 cursor-pointer">
         <Button
           color={data.tenant.mainColor}
           label="Adicionar à sacola"

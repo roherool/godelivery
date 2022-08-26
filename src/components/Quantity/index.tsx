@@ -36,7 +36,7 @@ export function Quantity({ color, count, onUpdateCount, min, max, small }: Props
   return (
     <div className="flex items-center justify-center rounded border border-[#f2f4f5] overflow-hidden">
       <div
-        className="flex items-center justify-center text-2xl font-bold"
+        className="flex items-center justify-center text-2xl font-bold cursor-pointer"
         onClick={handleRemove}
         style={{
           color: canRemove ? "#fff" : "#96a3ab",
@@ -56,7 +56,7 @@ export function Quantity({ color, count, onUpdateCount, min, max, small }: Props
       </div>
 
       <div
-        className="flex items-center justify-center text-2xl font-bold"
+        className="flex items-center justify-center text-2xl font-bold cursor-pointer"
         onClick={handleAdd}
         style={{
           color: canAdd ? "#fff" : "#96a3ab",

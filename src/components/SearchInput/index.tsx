@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
 import { MagnifyingGlass } from 'phosphor-react'
+import React, { useState } from 'react'
 
-import { useAppContext } from '../contexts/AppContext'
+import { useAppContext } from '../../contexts/app'
 
 interface Props {
   onSearch: (searchValue: string) => void
@@ -20,9 +20,8 @@ export function SearchInput({ onSearch }: Props) {
 
   return (
     <div
-      className={`flex p-2 border border-solid rounded-md mt-7 ${
-        focused ? tenant?.mainColor : 'border-white'
-      }`}
+      className={`flex p-2 border border-solid rounded-md mt-7 ${focused ? tenant?.mainColor : 'border-white'
+        }`}
     >
       <div
         onClick={() => onSearch(searchValue)}

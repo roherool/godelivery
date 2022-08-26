@@ -1,6 +1,6 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import 'swiper/css'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 export function Banner() {
   return (

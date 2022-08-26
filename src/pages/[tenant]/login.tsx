@@ -1,20 +1,24 @@
-import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 import { Tenant } from '../../@types/Tenant'
-import { useApi } from '../../libs/useApi'
-import { useAppContext } from '../../contexts/AppContext'
+import { Button } from '../../components/Button'
 import { Header } from '../../components/Header'
 import { InputField } from '../../components/InputField'
-import { Button } from '../../components/Button'
+
+import { useAppContext } from '../../contexts/app'
+import { useAuthContext } from '../../contexts/auth'
+import { useApi } from '../../libs/useApi'
 
 const Login = (data: Props) => {
+  const { tenant, setTenant } = useAppContext();
+  const { setToken, setUser } = useAuthContext();
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { tenant, setTenant } = useAppContext()
 
   useEffect(() => {
     setTenant(data.tenant)
@@ -22,7 +26,14 @@ const Login = (data: Props) => {
 
   const router = useRouter()
 
-  const handleSubmit = () => { }
+  const handleSubmit = () => {
+    setToken("1234");
+    setUser({
+      name: "Roberto",
+      email: "roherool@hotmail.com"
+    });
+    router.push(`/${data.tenant.slug}`);
+  }
 
   const handleSignUp = () => {
     router.push(`/${data.tenant.slug}/signup`)
@@ -72,7 +83,7 @@ const Login = (data: Props) => {
           />
         </div>
 
-        <div className="mb-8">
+        <div className="mb-8 cursor-pointer">
           <Button
             color={data.tenant.mainColor}
             label="Entrar"
@@ -116,10 +127,10 @@ interface Props {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tenant: tenantSlug } = context.query
-  const api = useApi()
+  const api = useApi(tenantSlug as string)
 
   // GET Tenant
-  const tenant = await api.getTenant(tenantSlug as string)
+  const tenant = await api.getTenant()
   if (!tenant) {
     return {
       redirect: {

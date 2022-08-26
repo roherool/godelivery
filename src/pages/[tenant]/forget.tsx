@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 import { Tenant } from '../../@types/Tenant'
-import { useApi } from '../../libs/useApi'
-import { useAppContext } from '../../contexts/AppContext'
+import { Button } from '../../components/Button'
 import { Header } from '../../components/Header'
 import { InputField } from '../../components/InputField'
-import { Button } from '../../components/Button'
+import { useAppContext } from '../../contexts/app'
+import { useApi } from '../../libs/useApi'
 
 const Forget = (data: Props) => {
   const { tenant, setTenant } = useAppContext()
@@ -44,7 +44,7 @@ const Forget = (data: Props) => {
       </div>
 
       <div
-        className="text-lg font-normal leading-5 text-center text-[rgba(27, 27, 27, 0.8)] m-auto w-[80%] pb-10 border-b-[1.5px] border-[#000] relative"
+        className="text-lg font-normal leading-6 text-center text-[rgba(27, 27, 27, 0.8)] m-auto w-[80%] pb-9 border-b-[1.5px] border-[#000] relative"
         style={{ borderBottomColor: data.tenant.mainColor }}
       >
         Preencha o campo com o seu e-mail e receba as instruções necessárias
@@ -53,8 +53,8 @@ const Forget = (data: Props) => {
 
       <div className="border-t-[1.5px] border-[#E2E2E2] -mt-[1.5px]"></div>
 
-      <form className="mt-14">
-        <div className="mb-8">
+      <form className="mt-12">
+        <div className="mb-12">
           <InputField
             placeholder="Digite seu e-mail"
             value={email}
@@ -63,7 +63,7 @@ const Forget = (data: Props) => {
           />
         </div>
 
-        <div className="mb-8">
+        <div className="mb-8 cursor-pointer">
           <Button
             color={data.tenant.mainColor}
             label="Enviar"
@@ -84,10 +84,10 @@ interface Props {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tenant: tenantSlug } = context.query
-  const api = useApi()
+  const api = useApi(tenantSlug as string)
 
   // GET Tenant
-  const tenant = await api.getTenant(tenantSlug as string)
+  const tenant = await api.getTenant()
   if (!tenant) {
     return {
       redirect: {
