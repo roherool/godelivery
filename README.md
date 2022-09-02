@@ -27,9 +27,9 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [x] **[React](https://reactjs.org)**
+- [x] **[NextJS](https://nextjs.org/docs/getting-started)**
 - [x] **[TypeScript](https://www.typescriptlang.org/)**
-- [x] **[Sass](https://sass-lang.com/)**
+- [x] **[Tailwind CSS](https://tailwindcss.com/docs/installation)**
 - [x] **[Firebase](https://firebase.google.com/?hl=pt)**
 
 ### 💻 Projeto
