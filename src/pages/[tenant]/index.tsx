@@ -1,7 +1,9 @@
 import { getCookie } from 'cookies-next'
 import { GetServerSideProps } from 'next'
-import { Hamburger, List } from 'phosphor-react'
 import { useEffect, useState } from 'react'
+
+import { Hamburger, List } from 'phosphor-react'
+import NoItemIcon from '../../../public/assets/no-item.svg'
 
 import { Banner } from '../../components/Banner'
 import { ProductItem } from '../../components/ProductItem'
@@ -101,9 +103,8 @@ const Home = (data: Props) => {
 
           {filteredProducts.length === 0 &&
             <div className="w-64 mx-auto my-20 no-products">
-
+              <NoItemIcon color="#E0E0E0" />
               <p className="mt-8 text-2xl font-medium leading-7 text-center text-gray-400 no-products-text">
-                <Hamburger size={150} color={tenant?.mainColor} />
                 Ops! Não há itens com este nome
               </p>
             </div>
