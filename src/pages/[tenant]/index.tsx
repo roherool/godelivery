@@ -29,9 +29,19 @@ const Home = (data: Props) => {
     if (data.user) setUser(data.user);
   }, [])
 
-  const handleSearch = (searchValue: string) => {
-    console.log(`Você está buscando por: ${searchValue}`)
-  }
+  // Search
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [searchText, setSearchText] = useState("");
+  const handleSearch = (value: string) => setSearchText(value);
+  useEffect(() => {
+    let newFilteredProducts: Product[] = [];
+    for (let product of data.products) {
+      if (product.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1) {
+        newFilteredProducts.push(product);
+      }
+    }
+    setFilteredProducts(newFilteredProducts);
+  }, [searchText]);
 
   return (
     <div className="bg-white">
@@ -72,16 +82,48 @@ const Home = (data: Props) => {
         </div>
       </header>
 
-      <Banner />
+      {searchText &&
+        <>
+          <div className="m-6 text-base font-normal text-gray-400 search-text">
+            Procurando por: <strong className="font-semibold">{searchText}</strong>
+          </div>
 
-      <div className="grid grid-cols-2 gap-6 mx-6">
-        {products.map((item, index) => (
-          <ProductItem
-            key={index}
-            data={item}
-          />
-        ))}
-      </div>
+          {filteredProducts.length > 0 &&
+            <div className="grid grid-cols-2 gap-6 mx-6">
+              {products.map((item, index) => (
+                <ProductItem
+                  key={index}
+                  data={item}
+                />
+              ))}
+            </div>
+          }
+
+          {filteredProducts.length === 0 &&
+            <div className="w-64 mx-auto my-20 no-products">
+
+              <p className="mt-8 text-2xl font-medium leading-7 text-center text-gray-400 no-products-text">
+                <Hamburger size={150} color={tenant?.mainColor} />
+                Ops! Não há itens com este nome
+              </p>
+            </div>
+          }
+        </>
+      }
+
+      {!searchText &&
+        <>
+          <Banner />
+          <div className="grid grid-cols-2 gap-6 mx-6">
+            {products.map((item, index) => (
+              <ProductItem
+                key={index}
+                data={item}
+              />
+            ))}
+          </div>
+        </>
+      }
     </div>
   )
 }

@@ -1,18 +1,9 @@
 import type { NextPage } from 'next'
-import { signIn, signOut, useSession } from 'next-auth/react'
 
 const Home: NextPage = () => {
-  const { data: session } = useSession()
-
   return (
     <div>
-      {!session && <button onClick={() => signIn()}>Fazer Login</button>}
-      {session && (
-        <>
-          Olá, {session.user?.name}
-          <button onClick={() => signOut()}>Sair</button>
-        </>
-      )}
+      <h1>Olá mundo!</h1>
     </div>
   )
 }
