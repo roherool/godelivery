@@ -11,11 +11,11 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Senha', type: 'password' },
       },
       authorize: async (credentials, req) => {
-        if (credentials?.email === 'roberto@streamline.com.br') {
+        if (credentials?.email === 'roherool@hotmail.com') {
           const user = {
             id: 123,
             name: 'Roberto',
-            email: 'roberto@strealine.com.br',
+            email: 'roherool@hotmail.com',
             role: 'USER',
           }
           return user

@@ -104,7 +104,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if (!tenant) {
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     }

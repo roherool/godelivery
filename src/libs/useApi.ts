@@ -18,15 +18,15 @@ export const useApi = (tenantSlug?: string) => ({
           slug: 'godelivery',
           name: 'GoDelivery',
           mainColor: '#FB9400',
-          secondColor: '#DB9400',
+          secondColor: '#FFF9F2',
         }
 
       case 'goburger':
         return {
-          slug: 'goburger',
-          name: 'GoBurger',
-          mainColor: '#000000',
-          secondColor: '#b78488',
+          slug: 'gopizza',
+          name: 'GoPizza',
+          mainColor: '#6AB70A',
+          secondColor: '#E0E0E0',
         }
 
       default:
