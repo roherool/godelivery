@@ -21,18 +21,18 @@ export function InputField({
 
   return (
     <div
-      className="w-full h-[61px] border-2 rounded px-4 flex"
+      className="w-full h-[61px] border-2 rounded px-4 flex bg-gray-100"
       style={{
         borderColor: focused ? color : '#F9F9FB',
-        backgroundColor: focused ? '#FFFFFF' : '#F9F9FB',
+        backgroundColor: focused ? '#FFFFFF' : ''
       }}
     >
       <input
+        className="flex-1 p-3 text-base font-normal bg-transparent border-0 outline-0 text-neutral-800"
         type={password ? (showPassword ? 'text' : 'password') : 'text'}
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="flex-1 p-3 text-base font-normal bg-transparent border-0 outline-0 text-neutral-800"
         color={color}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}

@@ -15,7 +15,7 @@ export function Header({ backButton, color, title, subtitle, invertColor }: Prop
       <div className="flex items-center justify-center w-12">
         <Link href={backButton}>
           <a
-            style={{ backgroundColor: "rgba(0, 0, 0, .1)" }}
+            style={{ backgroundColor: "transparent" }}
             className={invertColor
               ? "h-12 w-12 flex justify-center items-center rounded-md"
               : ""

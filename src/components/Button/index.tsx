@@ -9,7 +9,7 @@ export function Button({ color, label, onClick, fill }: Props) {
   return (
     <div
       onClick={onClick}
-      className="justify-center p-6 text-base font-semibold text-center text-black border-black rounded"
+      className="flex items-center justify-center p-4 text-base font-semibold text-black border-2 border-black border-solid rounded"
       style={{
         backgroundColor: fill ? color : 'transparent',
         borderColor: color,
